@@ -15,7 +15,10 @@ const Button = () => {
   const handleButtonPress = (index) => {
     if (index === 2) {
       navigation.navigate('Questions');
-    } else {
+    } 
+    if (index === 1) {
+      navigation.navigate('ScrolPage');
+    }else {
       console.log(`Button ${index+1} pressed`);
     }
   };
