@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import {
-  QuizContainer,
-  QuizRectangle,
-  QuizText,
-} from '../components/QuestStyle';
+  GamesContainer,
+  GamesRectangle,
+  NewGamesText,
+} from '../components/ScrolPage';
 
 const images = [
   require('./image/g.png'),
@@ -13,7 +13,8 @@ const images = [
   require('./image/butterfly.png'),
 ];
 
-const ScrolPage = () => {
+
+const ScrolPage = ({ someProp }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const renderCarouselItem = ({ item, index }) => {
@@ -25,22 +26,26 @@ const ScrolPage = () => {
   };
 
   return (
-    <QuizContainer>
-      <QuizRectangle>
-        <QuizText>RANKING</QuizText>
-      </QuizRectangle>
-      <Carousel
-        data={images}
-        renderItem={renderCarouselItem}
-        sliderWidth={300}
-        itemWidth={200}
-        loop={true}
-        autoplay={true}
-        autoplayDelay={1000}
-        autoplayInterval={2000}
-        onSnapToItem={(index) => setActiveSlide(index)}
-      />
-    </QuizContainer>
+    <View style= {{backgroundColor: 'white'}}>
+      <GamesContainer>
+        <GamesRectangle>
+          <NewGamesText>NEW GAMES</NewGamesText>
+        </GamesRectangle>
+      </GamesContainer>
+      <View style={{ backgroundColor: 'white', alignItems: 'center', marginTop: 20, }}>
+        <Carousel
+          data={images}
+          renderItem={renderCarouselItem}
+          sliderWidth={300}
+          itemWidth={200}
+          loop={true}
+          autoplay={true}
+          autoplayDelay={1000}
+          autoplayInterval={2000}
+          onSnapToItem={(index) => setActiveSlide(index)}
+        />
+      </View>
+    </View>
   );
 };
 

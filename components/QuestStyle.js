@@ -12,6 +12,7 @@ const { primary, yelow } = Colors;
 export const QuestContainer = styled.View`
   padding: 10px;
   background-color: ${Colors.primary};
+  margin-bottom: 100px;
 `;
 
 export const QContainer = styled.View`
